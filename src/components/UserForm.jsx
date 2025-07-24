@@ -18,7 +18,13 @@ const UserForm = () => {
     const newErrors = {};
     if(!formData.fullName) newErrors.fullName = "Full Name is required";
     if(!formData.email) newErrors.email = "Email is required";
-    if(!formData.age) newErrors.age = "Age is required";
+    
+    if (!formData.age) {
+      newErrors.age = "Age is required";
+    } else if (isNaN(ageValue) || ageValue < 18) {
+      newErrors.age = "Age must be a number and at least 18";
+    }
+
     if(!formData.gender) newErrors.gender = "Select gender";
     if(!formData.bio) newErrors.bio = "Bio is required";
     return newErrors;

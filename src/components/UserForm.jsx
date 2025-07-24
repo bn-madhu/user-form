@@ -21,7 +21,7 @@ const UserForm = () => {
     
     if (!formData.age) {
       newErrors.age = "Age is required";
-    } else if (isNaN(ageValue) || ageValue < 18) {
+    } else if (isNaN(parseInt(formData.age)) || parseInt(formData.age) < 18) {
       newErrors.age = "Age must be a number and at least 18";
     }
 
